@@ -2,7 +2,7 @@ from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 
 
 def simple_prompt():
