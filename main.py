@@ -1,17 +1,34 @@
 from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
+
 
 def simple_prompt():
     llm = OpenAI(openai_api_key=OPENAI_API_KEY)
     text = "What would be a good company name for a company that makes colorful socks?"
     print(llm(text))
 
-def prompt_template
+
+def prompt_template():
+    prompt = PromptTemplate(
+        input_variables=["product"],
+        template="What is a good name for a company that makes {product}?",
+    )
+    print(prompt.format(product="colorful socks"))
 
 
-# Press the green button in the gutter to run the script.
+def simple_chain():
+    llm = OpenAI(openai_api_key=OPENAI_API_KEY)
+    prompt = PromptTemplate(
+        input_variables=["product"],
+        template="What is a good name for a company that makes {product}?",
+    )
+    chain = LLMChain(llm=llm, prompt=prompt)
+    print(chain.run("colorful socks"))
+
+
 if __name__ == '__main__':
-    simple_prompt()
+    simple_chain()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
